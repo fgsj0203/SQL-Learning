@@ -28,3 +28,30 @@ from Person.Person as p
 order by p.LastName ASC
 ----------------------------------------------------------------------
 
+/*
+Third challenge = using clausule "where" for conditions for return values
+*/
+
+select *
+from Person.Person as p
+where p.LastName = 'miller' and p.FirstName = 'Anna';
+
+----------------------------------------------------------------------
+
+/*
+four challenge = using clausule "where" for conditions clausule "and"/"or" for return values
+*/
+
+select *
+from Production.Product as p
+where p.Color = 'blue' or p.Color = 'black'
+
+----------------------------------------------------------------------
+
+/*
+five challenge = using clausule "where" for conditions clausule "and"/"or" and operator aritmetics (< / >) for return values
+*/
+
+select *
+from Production.Product as p
+where p.ListPrice > 1500 and p.ListPrice < 5000
