@@ -91,3 +91,40 @@ select *
 from Person.EmailAddress
 where BusinessEntityID = 26
 ----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+/*
+Using clausule "Count" for calculating numbers of column
+*/
+
+select count (p.Title)
+from Person.Person as p
+
+----------------------------------------------------------------------
+--Challenge using clausule COUNT
+
+--1º = return amount products in tables Product
+select count (*)
+from Production.Product as p
+
+--2º = return amount height products in table Product
+select count(p.Size)
+from Production.Product as p
+
+--3º = return amount products size different in table products
+select count (distinct p.Size)
+from Production.Product as p
+
+
+
+
+
+
+
+
+
+
+
+
+
+
