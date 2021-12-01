@@ -62,4 +62,33 @@ CREATE TABLE clients (cod_company INT NOT NULL,
 					  date_create DATETIME NOT NULL,
 					  cod_payment INT,
 					  CONSTRAINT pk_cli1 PRIMARY KEY (cod_company, id_client),
+					  CONSTRAINT fk_cli1 FOREIGN KEY (cod_city) references cities (cod_city),
+					  CONSTRAINT fk_cli2 FOREIGN KEY (cod_company) references Company (cod_company)
+					  );
+
+---------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+--Creating table reference for provider
+CREATE TABLE fornecedor (cod_company INT NOT NULL,
+                         id_for INT IDENTITY(1,1),
+						 razao_fornec VARCHAR(100) NOT NULL,
+						 fantasy VARCHAR(15) NOT NULL,
+						 endereco VARCHAR(50) NOT NULL,
+						 nro VARCHAR(10) NOT NULL,
+						 district VARCHAR(20) NOT NULL,
+						 cod_city VARCHAR(7) NOT NULL,
+						 cep VARCHAR(8) NOT NULL,
+						 cnpj_cpf VARCHAR(15),
+						 type_fornec NCHAR(1) CONSTRAINT ck_tf1 CHECK (type_fornec IN ('F', 'J')),
+						 date_create DATETIME NOT NULL,
+						 cod_payment INT,
+						 CONSTRAINT pk_for1 PRIMARY KEY (cod_company, id_for),
+						 CONSTRAINT fk_for1 FOREIGN KEY (cod_city) REFERENCES cities (cod_city),
+						 CONSTRAINT fk_for2 FOREIGN KEY (cod_company) REFERENCES Company(cod_company)
+						 );
+
+--Verify content of table fornecedor
+select *
+from fornecedor
 
