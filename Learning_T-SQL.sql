@@ -186,12 +186,39 @@ select count(*)
 from Production.Product as p
 where p.Name like ('%road%')
 
+----------------------------------------------------------------------
+--Using command SUM, MIN, MAX and AVG for calculate operation mathematical
 
+select *
+from Sales.SalesOrderDetail
 
+select top 2 sum(s.LineTotal) as 'sum final'
+from Sales.SalesOrderDetail as s
 
+select top 10 min(s.LineTotal) as 'Values minimal'
+from Sales.SalesOrderDetail as s
 
+select top 10 max(s.LineTotal) as 'Values maximal'
+from Sales.SalesOrderDetail as s
 
+select top 10 avg(s.LineTotal) as 'Values average'
+from Sales.SalesOrderDetail as s
 
+----------------------------------------------------------------------
+--Using command "group by" for union values about groups
 
+--Consulting of all values table
+select *
+from Sales.SalesOrderDetail as s
+
+--organizing values about product id
+select s.ProductID ,COUNT(s.ProductID) 'Amount of sales'
+from Sales.SalesOrderDetail as s
+group by s.ProductID
+
+--Return names amount of names in database
+select p.FirstName, COUNT(p.FirstName) as 'Amount names of in database'
+from Person.Person as p
+group by p.FirstName
 
 
