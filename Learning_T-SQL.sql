@@ -115,6 +115,63 @@ from Production.Product as p
 select count (distinct p.Size)
 from Production.Product as p
 
+----------------------------------------------------------------------
+--Using clausule TOP and challenge
+
+select top 10*
+from Production.Product
+
+----------------------------------------------------------------------
+--Using a command ORDER BY
+
+--using condition ASC
+select top 10*
+from Person.Person as p
+order by p.FirstName asc
+
+--using condition DESC
+select top 10*
+from Person.Person as p
+order by p.FirstName desc
+
+--Others manipulation with first name in asc and last name in desc
+select p.FirstName, p.LastName
+from Person.Person as p
+order by p.FirstName asc, p.LastName desc
+
+----------------------------------------------------------------------
+--Return values of productId top 10 biggest value include in system
+
+select top 10(p.ProductID)
+from Production.Product as p
+order by p.ListPrice desc
+
+--Return values reference a name and number product of products with ProductID 1~4
+--First model
+select p.Name, p.ProductNumber
+from Production.Product as p
+where p.ProductID between 1 and 4;
+
+--Second model
+select top 4 p.Name, p.ProductNumber
+from Production.Product as p
+order by ProductID
+
+----------------------------------------------------------------------
+--Using command "BETWEEN" for return values in interval
+select
+from
+
+
+
+
+
+
+
+
+
+
+
 
 
 
