@@ -159,22 +159,32 @@ order by ProductID
 
 ----------------------------------------------------------------------
 --Using command "BETWEEN" for return values in interval
-select
-from
 
+--Return amount products include in system with price bigger 1500 dollars
+select count(p.ListPrice)
+from Production.Product as p
+where p.ListPrice > 1500
 
+--Return amount names peoples with initial letter "p"
+select count(p.LastName)
+from Person.Person as p
+where p.LastName like ('p%')
 
+--Return amount cities uniques about clients is included in system
+select count(distinct (p.City))
+from Person.Address as p
 
+--Return amount products with color red with price between 500 and 1000 dollars
 
+select count(p.Color)
+from Production.Product as p
+where p.Color = 'red' and p.ListPrice between 500 and 1000
 
+--Return amount products includes with word 'road' in your name
 
-
-
-
-
-
-
-
+select count(*)
+from Production.Product as p
+where p.Name like ('%road%')
 
 
 
