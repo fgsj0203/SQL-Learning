@@ -221,4 +221,19 @@ select p.FirstName, COUNT(p.FirstName) as 'Amount names of in database'
 from Person.Person as p
 group by p.FirstName
 
+--Returna average of price with products color silver
+select p.Color, AVG(p.ListPrice) as 'Price average of product with color'
+from Production.Product as p
+group by p.Color
+
+--Challenge using command group by 
+select p.MiddleName, COUNT(p.MiddleName) 'Amount names with equal middle name'
+from Person.Person as p
+group by p.MiddleName
+
+--Second challenge 
+select s.ProductID, AVG(s.OrderQty) as 'Average price of products'
+from Sales.SalesOrderDetail as s
+group by s.ProductID
+
 
