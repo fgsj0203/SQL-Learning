@@ -236,4 +236,19 @@ select s.ProductID, AVG(s.OrderQty) as 'Average price of products'
 from Sales.SalesOrderDetail as s
 group by s.ProductID
 
+----------------------------------------------------------------------
+--Using command "INNER JOIN" for union information most one table 
+
+--Verify values of people general
+select top 10*
+from Person.Person as p
+
+--Verify values about email of people
+select top 10*
+from Person.EmailAddress as p
+
+--Using command INNER JOIN for junction values of more than table
+select p.BusinessEntityID, p.FirstName, p.LastName, pe.EmailAddress
+from Person.Person as p inner join Person.EmailAddress as pe on p.BusinessEntityID = pe.BusinessEntityID
+
 
